@@ -6,5 +6,6 @@ import com.shop.myapp2.dto.SampleDTO;
 
 public interface SampleService {
 	List<SampleDTO> getSample();
+	SampleDTO sampleOne(String id);
 
 }

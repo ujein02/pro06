@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타임리프 테스트</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<th>no</th>
+			<th>id</th>
+			<th>pw</th>
+		</thead>
+		<tbody>
+			<tr th:each="sample, status : ${sampleList}">
+				<td th:text="${status.count}"></td>
+				<td th:text="${sample.id}"></td>
+				<td th:text="${sample.pw}"></td>
+				<th:block th:if="${sample.id} == 'admin'">
+				<td>관리자</td>
+				</th:block>
+				<th:block th:unless="${sample.id} == 'admin'">
+				<td>일반회원</td>
+				</th:block>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

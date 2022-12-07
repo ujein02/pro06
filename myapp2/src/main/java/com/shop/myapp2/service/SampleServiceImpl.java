@@ -18,6 +18,13 @@ public class SampleServiceImpl implements SampleService {
 	public List<SampleDTO> getSample() {
 		return sampleMapper.getSample();
 	}
+
+	@Override
+	public SampleDTO sampleOne(String id) {
+		return sampleMapper.sampleOne(id);
+	}
+	
+	
 	
 	
 

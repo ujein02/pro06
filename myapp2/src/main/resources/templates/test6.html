@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타임리프 테스트</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<th>no</th>
+			<th>id</th>
+			<th>pw</th>
+			
+		</thead>
+		<tbody>
+			<tr th:each="sample : ${sampleList}">
+				<td><a th:href="@{/sample/test10(id=${sample.id})}" th:text="${sample.id}"></td>
+				<td th:text="${sample.pw}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<a th:href="@{/sample/test5}">테스트5</a>
+</body>
+</html>

@@ -11,5 +11,6 @@ import com.shop.myapp2.dto.SampleDTO;
 @Repository
 public interface SampleMapper {
 	List<SampleDTO> getSample();
+	SampleDTO sampleOne(String id);
 
 }

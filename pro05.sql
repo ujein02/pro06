@@ -29,5 +29,5 @@ insert into memeber(id, email, password) values("admin","email@email.com","1234"
 commit;
 select * from sample;
 
-select * from board
+select * from board;
 
