@@ -1,5 +1,37 @@
-	<div class="text-center">
-		<a th:href="@{/product}">
-			<img class="img-fluid" th:src="@{/static/images/pen1.jpg}" alt="제품 사진">
-		</a>
-	</div>
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+    <th:block th:insert="fragments/common/head"></th:block>
+</head>
+<body>
+<div class="fluid-container">
+	<th:block th:insert="fragments/common/navbar"></th:block>
+		<div class="container">
+		<h2 class="title">공지사항</h2>
+			<table class="table">
+				<thead>
+					<th>no</th>
+					<th>title</th>
+					<th>resDate</th>
+					
+				</thead>
+				<tbody>
+					<tr th:each="board, status : ${boardList}">
+						<td th:text="${status.count}"></td>
+						<td><a th:href="@{/board/detail(bno=${board.bno})}" th:text="${board.title}"></td>
+						<td th:text="${board.resDate}"></td>
+					</tr>
+				</tbody>
+			</table>
+			<a th:href="@{/board/insert}" class="btn btn-primary waves-effect waves-light">글등록</a>
+		</div>
+		<th:block th:insert="fragments/common/footer"></th:block>
+</div>
+</body>
+</html>

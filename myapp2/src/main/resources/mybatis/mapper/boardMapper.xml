@@ -5,5 +5,10 @@
 	<select id="boardList" resultType="com.shop.myapp2.dto.BoardDTO">
 		select * from board
 	</select>
-	
+	<select id="boardDetail" resultType="com.shop.myapp2.dto.BoardDTO">
+		select * from board where bno=#{bno}
+	</select>
+	<insert id="boardInsert">
+		insert into board(title, content, author, visited) values (#{title}, #{content}, 'admin',  0)
+	</insert>
 </mapper>

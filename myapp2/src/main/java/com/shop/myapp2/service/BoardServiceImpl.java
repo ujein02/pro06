@@ -19,6 +19,18 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardDTO> BoardList() throws Exception {
 		return boardRepository.boardList();
 	}
+
+	@Override
+	public BoardDTO boardDetail(int bno) throws Exception {
+		return boardRepository.boardDetail(bno);
+	}
+
+	@Override
+	public void boardInsert(BoardDTO dto) throws Exception {
+		boardRepository.boardInsert(dto);
+		
+	}
+	
 	
 	
 

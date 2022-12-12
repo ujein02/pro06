@@ -9,5 +9,6 @@ public class BoardDTO {
 	private String content;
 	private String author;
 	private String resDate;
+	private int visited;
 
 }

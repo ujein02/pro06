@@ -11,5 +11,7 @@ import com.shop.myapp2.dto.BoardDTO;
 @Repository
 public interface BoardRepository {
 	List<BoardDTO> boardList();
+	BoardDTO boardDetail(int bno);
+	void boardInsert(BoardDTO dto);
 
 }

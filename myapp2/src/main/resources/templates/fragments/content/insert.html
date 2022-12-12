@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
+<head>
+	<title>게시판 글 쓰기</title>
+	<th:block th:insert="fragments/common/head"></th:block>
+</head>
+<body>
+<div class="fluid-container">
+	<th:block th:insert="fragments/common/navbar"></th:block>
+	<div class="container">
+		<h2 class="title">게시판 글 쓰기</h2>
+	    <th:block layout:fragment="content">
+	    <div class="card-content">
+			<form action="@{board/insert}" method="post">
+				<div class="form-group">
+					<label for="title" class="col-sm-2 control-label">제목</label>
+					<div class="col-sm-10">
+						<input type="text" id="title" class="form-control" placeholder="제목을 입력해 주세요." />
+					</div>
+				</div>
+	
+				<div class="form-group">
+					<label for="content" class="col-sm-2 control-label">내용</label>
+					<div class="col-sm-10">
+						<textarea id="content" class="form-control" placeholder="내용을 입력해 주세요." rows="8" cols="100" maxlength="800"></textarea>
+					</div>
+				</div>
+	
+				<div class="btn_wrap text-center">
+					<a th:href="@{/board/list}" class="btn btn-default waves-effect waves-light">글 목록</a>
+					<input type="submit" class="btn btn-primary waves-effect waves-light" value="글 등록"/ >
+					
+				</div>
+			</form>
+		</div>
+	    </th:block>
+	   
+	   
+	</div>
+	<th:block th:insert="fragments/common/footer"></th:block>
+</div>
+</html>

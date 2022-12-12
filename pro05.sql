@@ -6,7 +6,8 @@ commit;
 use shop;
 
 create table board(bno int primary key auto_increment, title varchar(200) not null,
-	content varchar(1000) not null, author varchar(20) not null, resDate datetime default now()
+	content varchar(1000) not null, author varchar(20) not null, resDate datetime default now(),
+    visited int default 0
     );
     
 desc board;

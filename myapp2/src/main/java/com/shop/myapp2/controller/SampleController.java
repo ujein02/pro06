@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.shop.myapp2.dto.ResponseDTO;
 import com.shop.myapp2.dto.SampleDTO;
 import com.shop.myapp2.service.SampleService;
 
@@ -25,6 +29,16 @@ public class SampleController {
 	public String test1() {
 		return "Hello Spring Boot Test1";
 	}
+	
+	//JSON의 ResultCode를 붙여서 보내는 경우
+    @ResponseBody	//localhost:8095/sample/test
+    @RequestMapping(value = "test", method = RequestMethod.GET)
+    public ResponseEntity<?> getSample() {
+        ResponseDTO responseDTO = new ResponseDTO();
+        responseDTO.setResultCode("S0001");
+        responseDTO.setRes(sampleService.getSample());
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
 	
 	@GetMapping("test2")
 	@ResponseBody
